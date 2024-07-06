@@ -1,36 +1,36 @@
 provider "aws" {
-  access_key = "dummy"
-  secret_key = "dummy"
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 
-  region = "us-east-1"
+  region = var.aws_region
 
-  s3_use_path_style           = true
-  skip_credentials_validation = true
-  skip_metadata_api_check     = true
-  skip_requesting_account_id  = true
+  s3_use_path_style           = var.aws_skip_key_validations
+  skip_credentials_validation = var.aws_skip_key_validations
+  skip_metadata_api_check     = var.aws_skip_key_validations
+  skip_requesting_account_id  = var.aws_skip_key_validations
 
   endpoints {
-    apigateway     = "http://localhost:4566"
-    apigatewayv2   = "http://localhost:4566"
-    cloudformation = "http://localhost:4566"
-    cloudwatch     = "http://localhost:4566"
-    dynamodb       = "http://localhost:4566"
-    ec2            = "http://localhost:4566"
-    elasticache    = "http://localhost:4566"
-    firehose       = "http://localhost:4566"
-    iam            = "http://localhost:4566"
-    kinesis        = "http://localhost:4566"
-    lambda         = "http://localhost:4566"
-    rds            = "http://localhost:4566"
-    redshift       = "http://localhost:4566"
-    route53        = "http://localhost:4566"
-    s3             = "http://localhost:4566"
-    secretsmanager = "http://localhost:4566"
-    ses            = "http://localhost:4566"
-    sns            = "http://localhost:4566"
-    sqs            = "http://localhost:4566"
-    ssm            = "http://localhost:4566"
-    stepfunctions  = "http://localhost:4566"
-    sts            = "http://localhost:4566"
+    apigateway     = var.aws_base_url
+    apigatewayv2   = var.aws_base_url
+    cloudformation = var.aws_base_url
+    cloudwatch     = var.aws_base_url
+    dynamodb       = var.aws_base_url
+    ec2            = var.aws_base_url
+    elasticache    = var.aws_base_url
+    firehose       = var.aws_base_url
+    iam            = var.aws_base_url
+    kinesis        = var.aws_base_url
+    lambda         = var.aws_base_url
+    rds            = var.aws_base_url
+    redshift       = var.aws_base_url
+    route53        = var.aws_base_url
+    s3             = var.aws_base_url
+    secretsmanager = var.aws_base_url
+    ses            = var.aws_base_url
+    sns            = var.aws_base_url
+    sqs            = var.aws_base_url
+    ssm            = var.aws_base_url
+    stepfunctions  = var.aws_base_url
+    sts            = var.aws_base_url
   }
 }
