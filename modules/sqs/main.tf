@@ -1,5 +1,5 @@
 resource "aws_sqs_queue" "terraform_queue" {
-  name                      = "terraform-example-queue.fifo"
+  name                      = "${var.recalculate_points_queue}.fifo"
   delay_seconds             = 1
   fifo_queue                = true
   max_message_size          = 2048
@@ -19,5 +19,9 @@ resource "aws_sqs_queue" "terraform_queue" {
 }
 
 resource "aws_sqs_queue" "terraform_queue_deadletter" {
-  name = "terraform-example-deadletter-queue"
+  name                      = "${var.recalculate_points_queue}-deadletter.fifo"
+  fifo_queue                = true
+  max_message_size          = 2048
+  message_retention_seconds = 86400
+  receive_wait_time_seconds = 10
 }
